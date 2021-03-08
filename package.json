@@ -1,0 +1,23 @@
+{
+  "name": "genshin-api",
+  "version": "1.0.0",
+  "description": "genshin impact api for those developer who want to build genshin guide but don't want to make backend",
+  "main": "app.js",
+  "scripts": {
+    "build": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidbae/genshin-api.git"
+  },
+  "author": "Hamid Baehaqi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamidbae/genshin-api/issues"
+  },
+  "homepage": "https://github.com/hamidbae/genshin-api#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
