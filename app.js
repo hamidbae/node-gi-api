@@ -4,6 +4,7 @@ const path = require('path')
 require('dotenv/config')
 
 const artifactRoute = require('./routes/artifact')
+const weaponRoute = require('./routes/weapon')
 
 const app = express()
 const port = 5010
@@ -11,6 +12,7 @@ const port = 5010
 app.use(express.json())
 
 app.use('/artifact', artifactRoute)
+app.use('/weapon', weaponRoute)
 
 app.get('/', (req, res) => {
     res.send('hello')

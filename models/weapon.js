@@ -31,4 +31,4 @@ const weaponSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('Artifact', weaponSchema)
+module.exports = mongoose.model('Weapon', weaponSchema)

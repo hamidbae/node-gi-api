@@ -28,7 +28,7 @@ const upload = multer({ storage: fileStorage, fileFilter: fileFilter })
 
 const clearImage = filePath => {
     filePath = path.join(__dirname, '..', filePath)
-    fs.unlink(filePath, err => console.log(err))
+    fs.unlink(filePath, err => err ? console.log(err) : '')
 }
 
 module.exports = { upload, clearImage }

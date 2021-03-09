@@ -34,13 +34,15 @@ module.exports.addArtifact = async (req, res) => {
 
 module.exports.updateArtifact = async (req, res) => {
     try{
-        let artifact = await Artifact.findById(req.params.id)
         const { name, rarity, set2, set4 } = req.body
+        let artifact = await Artifact.findById(req.params.id)
 
-        clearImage(artifact.imageUrl)
-    
+        if(req.file){
+            clearImage(artifact.imageUrl)
+        }
+        
         artifact.name = name ? name : artifact.name
-        artifact.imageUrl = req.file.path ? req.file.path : artifact.imageUrl
+        artifact.imageUrl = req.file ? req.file.path : artifact.imageUrl
         artifact.rarity = rarity ? rarity : artifact.rarity
         artifact.set2 = set2 ? set2 : artifact.set2
         artifact.set4 = set4 ? set4 : artifact.set4
