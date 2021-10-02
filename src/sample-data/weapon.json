@@ -1,0 +1,297 @@
+{
+  "weapons": [
+    {
+      "id": 1,
+      "name": "Staff of Homa",
+      "type": "Polearm",
+      "rarity": 5,
+      "obtain": "Wish",
+      "series": "Liyue",
+      "imageUrl1": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Weapon_Staff_of_Homa.png/revision/latest/scale-to-width-down/256?cb=20210225200935",
+      "imageUrl2": "https://static.wikia.nocookie.net/gensin-impact/images/e/ee/Weapon_Staff_of_Homa_2nd.png/revision/latest/scale-to-width-down/256?cb=20210321105014",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Weapon_Staff_of_Homa.png/revision/latest/scale-to-width-down/50?cb=20210225200935",
+      "weaponLvStats": [],
+      "refinementStats": [],
+      "ascensionMaterials": []
+    }
+  ],
+  "weaponLvStats": [
+    {
+      "id": 1,
+      "weaponId": 1,
+      "ascensionPhase": 0,
+      "lowLv": 1,
+      "highLv": 20,
+      "lowAtk": 46,
+      "highAtk": 122,
+      "lowSecondStat": "14.4%",
+      "highSecondStat": "25.4%"
+    },
+    {
+      "id": 2,
+      "weaponId": 1,
+      "ascensionPhase": 1,
+      "lowLv": 20,
+      "highLv": 40,
+      "lowAtk": 153,
+      "highAtk": 235,
+      "lowSecondStat": "25.4%",
+      "highSecondStat": "37.1%"
+    },
+    {
+      "id": 3,
+      "weaponId": 1,
+      "ascensionPhase": 2,
+      "lowLv": 40,
+      "highLv": 50,
+      "lowAtk": 266,
+      "highAtk": 308,
+      "lowSecondStat": "37.1%",
+      "highSecondStat": "42.9%"
+    },
+    {
+      "id": 4,
+      "weaponId": 1,
+      "ascensionPhase": 3,
+      "lowLv": 50,
+      "highLv": 60,
+      "lowAtk": 340,
+      "highAtk": 382,
+      "lowSecondStat": "42.9%",
+      "highSecondStat": "48.7%"
+    },
+    {
+      "id": 5,
+      "weaponId": 1,
+      "ascensionPhase": 4,
+      "lowLv": 60,
+      "highLv": 70,
+      "lowAtk": 414,
+      "highAtk": 457,
+      "lowSecondStat": "48.7%",
+      "highSecondStat": "54.5%"
+    },
+    {
+      "id": 6,
+      "weaponId": 1,
+      "ascensionPhase": 5,
+      "lowLv": 70,
+      "highLv": 80,
+      "lowAtk": 488,
+      "highAtk": 523,
+      "lowSecondStat": "54.5%",
+      "highSecondStat": "60.3%"
+    },
+    {
+      "id": 7,
+      "weaponId": 1,
+      "ascensionPhase": 6,
+      "lowLv": 80,
+      "highLv": 90,
+      "lowAtk": 563,
+      "highAtk": 608,
+      "lowSecondStat": "60.3%",
+      "highSecondStat": "66.2%"
+    }
+  ],
+  "refinementStats": [
+    {
+      "id": 1,
+      "weaponId": 1,
+      "refinementLv": 1,
+      "statsTitle": "Reckless Cinnabar",
+      "statsDescription": "HP increased by <b>20%</b>. Additionally, provides an ATK Bonus based on <b>0.8%</b> of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional <b>1%</b> of Max HP.",
+      "cost": 2000
+    },
+    {
+      "id": 2,
+      "weaponId": 1,
+      "refinementLv": 2,
+      "statsTitle": "Reckless Cinnabar",
+      "statsDescription": "HP increased by <b>25%</b>. Additionally, provides an ATK Bonus based on <b>1%</b> of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional <b>1.2%</b> of Max HP.",
+      "cost": 4000
+    },
+    {
+      "id": 3,
+      "weaponId": 1,
+      "refinementLv": 3,
+      "statsTitle": "Reckless Cinnabar",
+      "statsDescription": "HP increased by <b>30%</b>. Additionally, provides an ATK Bonus based on <b>01.2%</b> of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional <b>1.4%</b> of Max HP.",
+      "cost": 8000
+    },
+    {
+      "id": 4,
+      "weaponId": 1,
+      "refinementLv": 4,
+      "statsTitle": "Reckless Cinnabar",
+      "statsDescription": "HP increased by <b>35%</b>. Additionally, provides an ATK Bonus based on <b>1.4%</b> of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional <b>1.6%</b> of Max HP.",
+      "cost": 16000
+    },
+    {
+      "id": 5,
+      "weaponId": 1,
+      "refinementLv": 5,
+      "statsTitle": "Reckless Cinnabar",
+      "statsDescription": "HP increased by <b>40%</b>. Additionally, provides an ATK Bonus based on <b>1.6%</b> of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional <b>1.8%</b> of Max HP.",
+      "cost": "Maxed"
+    }
+  ],
+  "weaponAscensionMaterialsNeeded": [
+    {
+      "id": 1,
+      "weaponId": 1,
+      "ascensionPhaseTo": 1,
+      "cost": 10000,
+      "weaponMaterialId": 1,
+      "weaponMaterialTotal": 5,
+      "commonMaterial1Id": 1,
+      "commonMaterial1Total": 5,
+      "commonMaterial2Id": 4,
+      "commonMaterial2Total": 3
+    },
+    {
+      "id": 2,
+      "weaponId": 1,
+      "ascensionPhaseTo": 2,
+      "cost": 20000,
+      "weaponMaterialId": 2,
+      "weaponMaterialTotal": 5,
+      "commonMaterial1Id": 1,
+      "commonMaterial1Total": 18,
+      "commonMaterial2Id": 4,
+      "commonMaterial2Total": 12
+    },
+    {
+      "id": 3,
+      "weaponId": 1,
+      "ascensionPhaseTo": 3,
+      "cost": 30000,
+      "weaponMaterialId": 2,
+      "weaponMaterialTotal": 9,
+      "commonMaterial1Id": 2,
+      "commonMaterial1Total": 9,
+      "commonMaterial2Id": 5,
+      "commonMaterial2Total": 9
+    },
+    {
+      "id": 4,
+      "weaponId": 1,
+      "ascensionPhaseTo": 4,
+      "cost": 450000,
+      "weaponMaterialId": 3,
+      "weaponMaterialTotal": 5,
+      "commonMaterial1Id": 2,
+      "commonMaterial1Total": 18,
+      "commonMaterial2Id": 5,
+      "commonMaterial2Total": 14
+    },
+    {
+      "id": 5,
+      "weaponId": 1,
+      "ascensionPhaseTo": 5,
+      "cost": 550000,
+      "weaponMaterialId": 3,
+      "weaponMaterialTotal": 9,
+      "commonMaterial1Id": 3,
+      "commonMaterial1Total": 14,
+      "commonMaterial2Id": 6,
+      "commonMaterial2Total": 9
+    },
+    {
+      "id": 6,
+      "weaponId": 1,
+      "ascensionPhaseTo": 6,
+      "cost": 650000,
+      "weaponMaterialId": 4,
+      "weaponMaterialTotal": 6,
+      "commonMaterial1Id": 3,
+      "commonMaterial1Total": 27,
+      "commonMaterial2Id": 6,
+      "commonMaterial2Total": 18
+    }
+  ],
+  "weaponAscensionMaterials": [
+    {
+      "id": 1,
+      "name": "Grain of Aerosiderite",
+      "rarity": 2,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Grain_of_Aerosiderite.png/revision/latest/scale-to-width-down/256?cb=20210109220930",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Grain_of_Aerosiderite.png/revision/latest/scale-to-width-down/74?cb=20210109220930",
+      "obtain": ["Hidden Palace of Lianshan Formula (Wednesday/Saturday/Sunday)", "Purchased from the Souvenir Shop in Liyue"]
+    },
+    {
+      "id": 2,
+      "name": "Piece of Aerosiderite",
+      "rarity": 3,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Piece_of_Aerosiderite.png/revision/latest/scale-to-width-down/256?cb=20210109215813",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Piece_of_Aerosiderite.png/revision/latest/scale-to-width-down/74?cb=20210109215813",
+      "obtain": ["Hidden Palace of Lianshan Formula (Wednesday/Saturday/Sunday)", "Purchased from the Souvenir Shop in Liyue"]
+    },
+    {
+      "id": 3,
+      "name": "Bit of Aerosiderite",
+      "rarity": 4,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Item_Bit_of_Aerosiderite.png/revision/latest/scale-to-width-down/256?cb=20210109215827",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Item_Bit_of_Aerosiderite.png/revision/latest/scale-to-width-down/74?cb=20210109215827",
+      "obtain": ["Hidden Palace of Lianshan Formula (Wednesday/Saturday/Sunday)", "Purchased from the Souvenir Shop in Liyue"]
+    },
+    {
+      "id": 4,
+      "name": "Chunk of Aerosiderite",
+      "rarity": 5,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Chunk_of_Aerosiderite.png/revision/latest/scale-to-width-down/256?cb=20210109215819",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Chunk_of_Aerosiderite.png/revision/latest/scale-to-width-down/74?cb=20210109215819",
+      "obtain": ["Hidden Palace of Lianshan Formula (Wednesday/Saturday/Sunday)", "Purchased from the Souvenir Shop in Liyue"]
+    }
+  ],
+  "commonMaterials": [
+    {
+      "id": 1,
+      "name": "Dead Ley Line Branch",
+      "rarity": 2,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/7/77/Item_Dead_Ley_Line_Branch.png/revision/latest/scale-to-width-down/256?cb=20210106071133",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/7/77/Item_Dead_Ley_Line_Branch.png/revision/latest/scale-to-width-down/74?cb=20210106071133",
+      "obtain": ["Dropped by Abyss Mages"]
+    },
+    {
+      "id": 2,
+      "name": "Dead Ley Line Leaves",
+      "rarity": 3,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/d/d2/Item_Dead_Ley_Line_Leaves.png/revision/latest/scale-to-width-down/256?cb=20210106071145",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/d/d2/Item_Dead_Ley_Line_Leaves.png/revision/latest/scale-to-width-down/74?cb=20210106071145",
+      "obtain": ["Dropped by Abyss Mages"]
+    },
+    {
+      "id": 3,
+      "name": "Ley Line Sprout",
+      "rarity": 4,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/7/76/Item_Ley_Line_Sprout.png/revision/latest/scale-to-width-down/256?cb=20210106071202",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/7/76/Item_Ley_Line_Sprout.png/revision/latest/scale-to-width-down/74?cb=20210106071202",
+      "obtain": ["Dropped by Abyss Mages"]
+    },
+    {
+      "id": 4,
+      "name": "Slime Condensate",
+      "rarity": 1,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Slime_Condensate.png/revision/latest/scale-to-width-down/256?cb=20210109220914",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Slime_Condensate.png/revision/latest/scale-to-width-down/74?cb=20210109220914",
+      "obtain": ["Dropped by Slimes"]
+    },
+    {
+      "id": 5,
+      "name": "Slime Secretions",
+      "rarity": 2,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Slime_Secretions.png/revision/latest/scale-to-width-down/256?cb=20210109220910",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Slime_Secretions.png/revision/latest/scale-to-width-down/74?cb=20210109220910",
+      "obtain": ["Dropped by Slimes"]
+    },
+    {
+      "id": 6,
+      "name": "Slime Concentrate",
+      "rarity": 3,
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/d/d8/Item_Slime_Concentrate.png/revision/latest/scale-to-width-down/256?cb=20210109220909",
+      "iconUrl": "https://static.wikia.nocookie.net/gensin-impact/images/d/d8/Item_Slime_Concentrate.png/revision/latest/scale-to-width-down/74?cb=20210109220909",
+      "obtain": ["Dropped by Slimes"]
+    }
+  ]
+}
