@@ -1,7 +1,9 @@
 import express from 'express'
-import { body, param } from 'express-validator'
+import { body } from 'express-validator'
 import weapon from '../controllers/weapon.js'
 import upload from '../helper/multer.js'
+import auth from '../middleware/auth.js'
+
 const weaponRouter = express.Router()
 
 /*
@@ -28,6 +30,7 @@ weaponRouter.get('/', weapon.controller.getAll)
 weaponRouter.post(
   '/',
   [
+    auth,
     upload.fields([
       { name: 'image1', maxCount: 1 },
       { name: 'image2', maxCount: 1 },
@@ -49,6 +52,7 @@ weaponRouter.post(
 weaponRouter.put(
   '/:id',
   [
+    auth,
     upload.fields([
       { name: 'image1', maxCount: 1 },
       { name: 'image2', maxCount: 1 },
@@ -87,7 +91,7 @@ weaponRouter.put(
   ],
   weapon.controller.update
 )
-weaponRouter.delete('/:id', weapon.controller.del)
+weaponRouter.delete('/:id', auth, weapon.controller.del)
 
 /*
 weapon level statistic router
@@ -107,6 +111,7 @@ weaponRouter.get('/lv-statistic/', weapon.levelController.getAll)
 weaponRouter.post(
   '/lv-statistic/',
   [
+    auth,
     body('weaponId', 'Please provide a weaponId').notEmpty(),
     body('weaponId', 'weaponId field must be string').isString(),
     body('ascensionPhase', 'Please provide a ascensionPhase').notEmpty(),
@@ -129,6 +134,7 @@ weaponRouter.post(
 weaponRouter.put(
   '/lv-statistic/:id',
   [
+    auth,
     body('weaponId').custom((val) => {
       if (val) {
         body('weaponId', 'weaponId field must be string').isString()
@@ -180,7 +186,7 @@ weaponRouter.put(
   ],
   weapon.levelController.update
 )
-weaponRouter.delete('/lv-statistic/:id', weapon.levelController.del)
+weaponRouter.delete('/lv-statistic/:id', auth, weapon.levelController.del)
 
 // weapon refinement router
 // field : weaponId, refinementLv, cost, statsTitle, statsDescription,
@@ -189,6 +195,7 @@ weaponRouter.get('/refinement/', weapon.refinementController.getAll)
 weaponRouter.post(
   '/refinement/',
   [
+    auth,
     body('weaponId', 'Please provide a weaponId').notEmpty(),
     body('weaponId', 'weaponId field must be string').isString(),
     body('refinementLv', 'Please provide a refinementLv').notEmpty(),
@@ -205,6 +212,7 @@ weaponRouter.post(
 weaponRouter.put(
   '/refinement/:id',
   [
+    auth,
     body('weaponId').custom((val) => {
       if (val) {
         body('weaponId', 'weaponId field must be string').isString()
@@ -255,6 +263,7 @@ weaponRouter.get('/ascension-materials/', weapon.ascensionMaterialController.get
 weaponRouter.post(
   '/ascension-materials/',
   [
+    auth,
     body('ascensionPhaseTo', 'Please provide a ascensionPhaseTo').notEmpty(),
     body('ascensionPhaseTo', 'ascensionPhaseTo field must be a number between 1-6').isFloat({
       min: 1,
@@ -280,6 +289,7 @@ weaponRouter.post(
 weaponRouter.put(
   '/ascension-materials/:id',
   [
+    auth,
     body('ascensionPhaseTo').custom((val) => {
       if (val) {
         body('ascensionPhaseTo', 'AscensionPhaseTo field must be number between 1-6').isFloat({ min: 1, max: 6 })
@@ -331,6 +341,6 @@ weaponRouter.put(
   ],
   weapon.ascensionMaterialController.update
 )
-weaponRouter.delete('/ascension-materials/:id', weapon.ascensionMaterialController.del)
+weaponRouter.delete('/ascension-materials/:id', auth, weapon.ascensionMaterialController.del)
 
 export default weaponRouter

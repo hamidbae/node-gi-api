@@ -2,6 +2,7 @@ import express from 'express'
 import material from '../controllers/material.js'
 import upload from '../helper/multer.js'
 import { body } from 'express-validator'
+import auth from '../middleware/auth.js'
 
 const materialRouter = express.Router()
 
@@ -9,6 +10,7 @@ materialRouter.get('/', material.controller.getAll)
 materialRouter.post(
   '/',
   [
+    auth,
     upload.fields([
       { name: 'image', maxCount: 1 },
       { name: 'icon', maxCount: 1 },
@@ -29,6 +31,7 @@ materialRouter.post(
 materialRouter.put(
   '/:id',
   [
+    auth,
     upload.fields([
       { name: 'image', maxCount: 1 },
       { name: 'icon', maxCount: 1 },
@@ -62,6 +65,6 @@ materialRouter.put(
   ],
   material.controller.update
 )
-materialRouter.delete('/:id', material.controller.del)
+materialRouter.delete('/:id', auth, material.controller.del)
 
 export default materialRouter
