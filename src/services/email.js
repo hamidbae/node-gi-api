@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 })
 
-transporter.verify().then(console.info).catch(console.error)
+// transporter.verify().then(console.info).catch(console.error)
 
 const emailService = {
   sendEmail: (to, subject, content) =>

@@ -9,6 +9,22 @@ import cloudinaryAPI from '../helper/cloudinary.js'
 import Material from '../models/material.js'
 
 const controller = {
+  getOne: async (req, res) => {
+    const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
+    try {
+      const { materialId } = req.params
+      const item = await Material.findById(materialId)
+      if (!item) {
+        return res.status(404).json(RESPONSE(requestTime, 'Material not found!', null))
+      }
+
+      return res.status(200).json(RESPONSE(requestTime, 'Get material success', item))
+    } catch (err) {
+      LOGGER.Error(err)
+
+      return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
+    }
+  },
   getAll: async (req, res) => {
     const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
     try {

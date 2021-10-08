@@ -6,6 +6,7 @@ import auth from '../middleware/auth.js'
 
 const materialRouter = express.Router()
 
+materialRouter.get('/:materialId', material.controller.getOne)
 materialRouter.get('/', material.controller.getAll)
 materialRouter.post(
   '/',
@@ -22,9 +23,6 @@ materialRouter.post(
     body('rarity', 'Please provide a rarity').notEmpty(),
     body('rarity', 'Rarity filed must be number').isNumeric(),
     body('obtain', 'Please provide obtain').notEmpty(),
-    // body('obtain', 'Rarity field must be an array').custom((val) => {
-    //   return Array.isArray(val)
-    // }),
   ],
   material.controller.add
 )
@@ -54,14 +52,6 @@ materialRouter.put(
       }
       return true
     }),
-    // body('obtain').custom((val) => {
-    //   if (val) {
-    //     body('obtain', 'Rarity field must be an array').custom((arr) => {
-    //       return Array.isArray(arr)
-    //     })
-    //   }
-    //   return true
-    // }),
   ],
   material.controller.update
 )

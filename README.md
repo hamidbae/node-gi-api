@@ -1,1 +1,3 @@
 # Not ready yet....
+
+## deployed on https://genshin-api-90.herokuapp.com

@@ -6,7 +6,7 @@ const CONSTANT = {
   WIB: 'Asia/Jakarta',
   DATE_FORMAT: 'YYYY-MM-DD HH:mm:ss',
   TOKEN_EXPIRY_SECOND: 60 * 60 * 2,
-  PORT: process.env.NODE_ENV === 'production' ? process.env.PORT : 3000,
+  PORT: process.env.NODE_ENV === 'production' ? process.env.PORT : 5000,
   BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
   SECRET_KEY: process.env.SECRET_KEY,
   NODE_ENV: process.env.NODE_ENV || 'development',

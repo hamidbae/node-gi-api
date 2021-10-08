@@ -44,6 +44,22 @@ const controller = {
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
     }
   },
+  getOne: async (req, res) => {
+    const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
+    try {
+      const weaponId = req.params.weaponId
+      const weapon = await Weapon.findById(weaponId)
+      if (!weapon) {
+        return res.status(404).json(RESPONSE(requestTime, 'Weapon not found!', null))
+      }
+
+      return res.status(200).json(RESPONSE(requestTime, 'Get weapons success', weapon))
+    } catch (err) {
+      LOGGER.Error(err)
+
+      return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
+    }
+  },
   add: async (req, res) => {
     const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
     const errors = validationResult(req)
