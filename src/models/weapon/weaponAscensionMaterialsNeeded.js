@@ -6,11 +6,11 @@ const weaponAscensionMaterialsNeededSchema = new Schema({
   weaponId: { type: Schema.Types.ObjectId, ref: 'Weapon' },
   ascensionPhaseTo: { type: Number, required: true },
   cost: { type: String, required: true },
-  weaponMaterialId: { type: Schema.Types.ObjectId, ref: 'WeaponMaterial' },
+  weaponMaterialId: { type: Schema.Types.ObjectId, ref: 'Material' },
   weaponMaterialTotal: { type: Number, required: true },
-  commonMaterial1Id: { type: Schema.Types.ObjectId, ref: 'CommonMaterial' },
+  commonMaterial1Id: { type: Schema.Types.ObjectId, ref: 'Material' },
   commonMaterial1Total: { type: Number, required: true },
-  commonMaterial2Id: { type: Schema.Types.ObjectId, ref: 'CommonMaterial' },
+  commonMaterial2Id: { type: Schema.Types.ObjectId, ref: 'Material' },
   commonMaterial2Total: { type: Number, required: true },
 })
 

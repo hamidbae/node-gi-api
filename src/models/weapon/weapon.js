@@ -8,6 +8,7 @@ const weaponSchema = new Schema({
   rarity: { type: Number, required: true },
   obtain: { type: String, required: true },
   series: { type: String, required: true },
+  secondStat: { type: String, required: true },
   image1Id: { type: String, required: true },
   image1Url: {
     type: String,
@@ -35,13 +36,13 @@ const weaponSchema = new Schema({
   refinementStats: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'RefinementStats',
+      ref: 'WeaponRefinementStats',
     },
   ],
   ascensionMaterials: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'AscensionMaterials',
+      ref: 'WeaponAscensionMaterialsNeeded',
     },
   ],
 })

@@ -8,6 +8,7 @@ import path, { dirname } from 'path'
 import weaponRouter from './routes/weapon.js'
 import materialRouter from './routes/material.js'
 import adminRouter from './routes/admin.js'
+import eventRouter from './routes/event.js'
 // const artifactRoute = require('./routes/artifact')
 // const elementRoute = require('./routes/element')
 // const characterRoute = require('./routes/character')
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs')
 app.use('/api/weapon', weaponRouter)
 app.use('/api/material', materialRouter)
 app.use('/api/admin', adminRouter)
+app.use('/api/event', eventRouter)
 // app.use('/artifact', artifactRoute)
 // app.use('/element', elementRoute)
 // app.use('/character', characterRoute)

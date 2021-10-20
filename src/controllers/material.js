@@ -46,11 +46,13 @@ const controller = {
 
     try {
       const { name, rarity, type, obtain } = req.body
+      const obtains = obtain.split(', ')
+
       const item = new Material({
         name,
         rarity,
         type,
-        obtain,
+        obtain: obtains,
       })
 
       if (req.files) {

@@ -27,7 +27,7 @@ fields:
 */
 
 weaponRouter.get('/', weapon.controller.getAll)
-weaponRouter.get('/:weaponId', weapon.controller.getOne)
+weaponRouter.get('/detail/:weaponId', weapon.controller.getOne)
 weaponRouter.post(
   '/',
   [

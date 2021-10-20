@@ -52,8 +52,23 @@ const controller = {
       if (!weapon) {
         return res.status(404).json(RESPONSE(requestTime, 'Weapon not found!', null))
       }
+      const lvStats = await WeaponLvStats.find({ weaponId }).sort({ ascensionPhase: 1 })
+      const refinement = await WeaponRefinementStats.find({ weaponId }).sort({ refinementLv: 1 })
+      const ascension = await WeaponAscensionMaterialsNeeded.find({ weaponId }).sort({ ascensionPhaseTo: 1 })
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get weapons success', weapon))
+      if (ascension) {
+        for (let i = 0; i < ascension.length; i++) {
+          ascension[i].weaponMaterialId = await Material.findById(ascension[i].weaponMaterialId)
+          ascension[i].commonMaterial1Id = await Material.findById(ascension[i].commonMaterial1Id)
+          ascension[i].commonMaterial2Id = await Material.findById(ascension[i].commonMaterial2Id)
+        }
+      }
+
+      weapon.weaponLvStats = lvStats
+      weapon.refinementStats = refinement
+      weapon.ascensionMaterials = ascension
+
+      return res.status(200).json(RESPONSE(requestTime, 'Get weapon success', weapon))
     } catch (err) {
       LOGGER.Error(err)
 
@@ -68,13 +83,14 @@ const controller = {
     }
 
     try {
-      const { name, type, rarity, obtain, series, weaponLvStats, refinementStats, ascensionMaterials } = req.body
+      const { name, type, rarity, obtain, series, secondStat, weaponLvStats, refinementStats, ascensionMaterials } = req.body
       const weapon = new Weapon({
         name,
         type,
         rarity,
         obtain,
         series,
+        secondStat,
         weaponLvStats,
         refinementStats,
         ascensionMaterials,
@@ -116,7 +132,7 @@ const controller = {
 
     try {
       const weaponId = req.params.id
-      let { name, type, rarity, obtain, series, weaponLvStats, refinementStats, ascensionMaterials } = req.body
+      let { name, type, rarity, obtain, series, secondStat, weaponLvStats, refinementStats, ascensionMaterials } = req.body
       const weapon = await Weapon.findById(weaponId)
       if (!weapon) {
         return res.status(404).json(RESPONSE(requestTime, 'Weapon not found!', null))
@@ -126,6 +142,7 @@ const controller = {
       weapon.rarity = rarity ? rarity : weapon.rarity
       weapon.obtain = obtain ? obtain : weapon.obtain
       weapon.series = series ? series : weapon.series
+      weapon.secondStat = secondStat ? secondStat : weapon.secondStat
       weapon.weaponLvStats = weaponLvStats ? weaponLvStats : weapon.weaponLvStats
       weapon.refinementStats = refinementStats ? refinementStats : weapon.refinementStats
       weapon.ascensionMaterials = ascensionMaterials ? ascensionMaterials : weapon.ascensionMaterials
@@ -171,7 +188,6 @@ const controller = {
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
     }
   },
-
   del: async (req, res) => {
     const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
 
