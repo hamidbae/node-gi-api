@@ -182,7 +182,7 @@ const controller = {
 
       const updatedWeapon = await weapon.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Weapon updated', updatedWeapon))
+      return res.status(200).json(RESPONSE(requestTime, 'Update weapon success', updatedWeapon))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -228,7 +228,7 @@ const levelController = {
     try {
       const weaponLvStatistics = await WeaponLvStats.find()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get list weapon refinement success', weaponLvStatistics))
+      return res.status(200).json(RESPONSE(requestTime, 'Get weapon levels success', weaponLvStatistics))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -262,7 +262,7 @@ const levelController = {
       weapon.weaponLvStats.push(newWeaponLvStatistic._id)
       await weapon.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Add weapon lav statistic success', newWeaponLvStatistic))
+      return res.status(200).json(RESPONSE(requestTime, 'Add weapon level success', newWeaponLvStatistic))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -280,7 +280,7 @@ const levelController = {
       let { weaponId, ascensionPhase, lowLv, highLv, lowAtk, highAtk, lowSecondStat, highSecondStat } = req.body
       const weaponLvStatistic = await WeaponLvStats.findById(weaponLvStatisticId)
       if (!weaponLvStatistic) {
-        return res.status(404).json(RESPONSE(requestTime, 'Weapon level statistic not found!', null))
+        return res.status(404).json(RESPONSE(requestTime, 'Weapon level not found!', null))
       }
 
       if (weaponId) {
@@ -308,7 +308,7 @@ const levelController = {
 
       const updatedWeaponLvStatistic = await weaponLvStatistic.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Refinement material updated', updatedWeaponLvStatistic))
+      return res.status(200).json(RESPONSE(requestTime, 'Update weapon level success', updatedWeaponLvStatistic))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -321,14 +321,14 @@ const levelController = {
       const weaponLvStatisticId = req.params.id
       const weaponLvStatistic = await WeaponLvStats.findById(weaponLvStatisticId)
       if (!weaponLvStatistic) {
-        return res.status(404).json(RESPONSE(requestTime, 'Weapon lv statistic not found!', null))
+        return res.status(404).json(RESPONSE(requestTime, 'Weapon level not found!', null))
       }
 
       await weaponLvStatistic.remove()
 
       return res.status(200).json(
-        RESPONSE(requestTime, 'Delete weapon lv statistic success', {
-          _id: weaponLvStatisticId,
+        RESPONSE(requestTime, 'Delete weapon level success', {
+          weaponLevelId: weaponLvStatisticId,
         })
       )
     } catch (err) {
@@ -355,7 +355,7 @@ const refinementController = {
     try {
       const weaponRefinements = await WeaponRefinementStats.find()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get list weapon refinement success', weaponRefinements))
+      return res.status(200).json(RESPONSE(requestTime, 'Get weapon refinements success', weaponRefinements))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -386,7 +386,7 @@ const refinementController = {
       weapon.refinementStats.push(newWeaponRefinementStats._id)
       await weapon.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Add weapon refinement stats success', newWeaponRefinementStats))
+      return res.status(200).json(RESPONSE(requestTime, 'Add weapon refinement success', newWeaponRefinementStats))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -429,7 +429,7 @@ const refinementController = {
 
       const updatedWeaponRefinement = await weaponRefinement.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Refinement material updated', updatedWeaponRefinement))
+      return res.status(200).json(RESPONSE(requestTime, 'Update weapon refinement success', updatedWeaponRefinement))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -466,7 +466,7 @@ const ascensionMaterialController = {
     try {
       const listMaterial = await WeaponAscensionMaterialsNeeded.find()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get list material success', listMaterial))
+      return res.status(200).json(RESPONSE(requestTime, 'Get weapon ascension materials success', listMaterial))
     } catch (err) {
       LOGGER.Error(err)
 
@@ -526,7 +526,7 @@ const ascensionMaterialController = {
       weapon.ascensionMaterials.push(newListMaterial._id)
       weapon.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Add weapon ascension material list success', newListMaterial))
+      return res.status(200).json(RESPONSE(requestTime, 'Add weapon ascension material success', newListMaterial))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -605,7 +605,7 @@ const ascensionMaterialController = {
 
       const updatedListMaterial = await listMaterial.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'List material updated', updatedListMaterial))
+      return res.status(200).json(RESPONSE(requestTime, 'Update weapon ascension material success', updatedListMaterial))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
@@ -624,8 +624,8 @@ const ascensionMaterialController = {
       await ascensionMaterial.remove()
 
       return res.status(200).json(
-        RESPONSE(requestTime, 'Delete ascension material needed success', {
-          _id: ascensionMaterialId,
+        RESPONSE(requestTime, 'Delete weapon ascension material success', {
+          weaponAscensionMaterialId: ascensionMaterialId,
         })
       )
     } catch (err) {

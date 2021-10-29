@@ -30,7 +30,7 @@ const controller = {
     try {
       const items = await Material.find()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get material success', items))
+      return res.status(200).json(RESPONSE(requestTime, 'Get materials success', items))
     } catch (err) {
       LOGGER.Error(err)
 
@@ -122,7 +122,7 @@ const controller = {
 
       const updatedMaterial = await material.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Common material updated', updatedMaterial))
+      return res.status(200).json(RESPONSE(requestTime, 'Update material success', updatedMaterial))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))

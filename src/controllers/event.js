@@ -14,7 +14,20 @@ const controller = {
     try {
       const events = await Event.find()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Get event success', events))
+      return res.status(200).json(RESPONSE(requestTime, 'Get events success', events))
+    } catch (err) {
+      LOGGER.Error(err)
+
+      return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
+    }
+  },
+  getOne: async (req, res) => {
+    const requestTime = moment().tz(CONSTANT.WIB).format(CONSTANT.DATE_FORMAT)
+    try {
+      const eventId = req.params.eventId
+      const event = await Event.findById(eventId)
+
+      return res.status(200).json(RESPONSE(requestTime, 'Get event success', event))
     } catch (err) {
       LOGGER.Error(err)
 
@@ -29,23 +42,30 @@ const controller = {
     }
 
     try {
-      const { title, status, description, dateStart, dateEnd } = req.body
-
+      const { title, status, description, startDate, endDate } = req.body
+      // console.log('helel')
       const event = new Event({
         title,
         status,
         description,
-        dateStart,
-        dateEnd,
+        startDate: new Date(startDate),
+        endDate: new Date(endDate),
       })
 
-      if (req.file) {
-        // console.log(req.file)
-        const imagePath = req.file.path
+      // console.log(req.files)
+      if (req.files) {
+        const imagePath = req.files.image[0].path
+        // console.log(imagePath)
+        const iconPath = req.files.icon[0].path
+        // console.log(iconPath)
         const imageFolder = 'event/images'
+        const iconFolder = 'event/icons'
         const image = await cloudinaryAPI.uploadImage(imagePath, imageFolder)
+        const icon = await cloudinaryAPI.uploadImage(iconPath, iconFolder)
         event.imageUrl = image.imageUrl
         event.imageId = image.imageId
+        event.iconUrl = icon.imageUrl
+        event.iconId = icon.imageId
       }
 
       const newEvent = await event.save()
@@ -66,7 +86,7 @@ const controller = {
 
     try {
       const eventId = req.params.id
-      let { title, status, description, dateStart, dateEnd } = req.body
+      let { title, status, description, startDate, endDate } = req.body
       const event = await Event.findById(eventId)
       if (!event) {
         return res.status(404).json(RESPONSE(requestTime, 'Event not found!', null))
@@ -75,11 +95,11 @@ const controller = {
       event.title = title ? title : event.title
       event.status = status ? status : event.status
       event.description = description ? description : event.description
-      event.dateStart = dateStart ? dateStart : event.dateStart
-      event.dateEnd = dateEnd ? dateEnd : event.dateEnd
+      event.startDate = startDate ? new Date(startDate) : event.startDate
+      event.endDate = endDate ? new Date(endDate) : event.endDate
 
-      if (req.file) {
-        const imagePath = req.file.path
+      if (req.files.image) {
+        const imagePath = req.files.image[0].path
         const imageFolder = 'event/images'
         if (event.imageId) {
           await cloudinaryAPI.deleteImage(event.imageId)
@@ -89,9 +109,20 @@ const controller = {
         event.imageId = newImage.imageId
       }
 
+      if (req.files.icon) {
+        const iconPath = req.files.icon[0].path
+        const iconFolder = 'event/icons'
+        if (event.iconId) {
+          await cloudinaryAPI.deleteImage(event.iconId)
+        }
+        const newIcon = await cloudinaryAPI.uploadImage(iconPath, iconFolder)
+        event.iconUrl = newIcon.imageUrl
+        event.iconId = newIcon.imageId
+      }
+
       const updatedEvent = await event.save()
 
-      return res.status(200).json(RESPONSE(requestTime, 'Event updated', updatedEvent))
+      return res.status(200).json(RESPONSE(requestTime, 'Update event success', updatedEvent))
     } catch (err) {
       LOGGER.Error(err)
       return res.status(500).json(RESPONSE(requestTime, 'Internal server error', null, err))
